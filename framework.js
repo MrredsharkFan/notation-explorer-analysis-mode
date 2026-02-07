@@ -7,8 +7,9 @@ else if (!localStorage.getItem("ne-0").includes("omega-y")) {
 }
 s = {};
 for (i = 0; i < 36; i++){
-   s[register[i]["id"]] = (typeof (d[register[i]]) == Object) ? d[register[i]["id"]] : {}
+   s[register[i]["id"]] = (typeof (d[register[i]]) == "object") ? d[register[i]["id"]] : {}
 }
+//you know how many fucking commits this took to get right???????
 const FSbounded = (FS, compare, seq, low) => {
    var res,n=0
    while(true){
