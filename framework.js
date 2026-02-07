@@ -1,4 +1,9 @@
 h = [];
+d = JSON.parse(localStorage.getItem("ne-0"))
+s = {};
+for (i = 0; i < 36; i++){
+   s[register[i]["id"]] = d[register[i]["id"]]
+}
 const FSbounded = (FS, compare, seq, low) => {
    var res,n=0
    while(true){
@@ -12,8 +17,8 @@ const FSbounded = (FS, compare, seq, low) => {
       current_tab:0
       ,FS_shown:register.map(()=>3)
       ,extra_FS:register.map(()=>0)
-      ,tier:register.map(()=>1)
-      ,datasets:register.map(notation=>notation.init())
+      , tier: register.map(() => 1)
+      , datasets: register.map(notation => notation.init()) //how the fuck can u get back the "listn't list" thing
    })
    ,computed:{
       current_notation(){return register[this.current_tab].id}
@@ -45,6 +50,9 @@ const FSbounded = (FS, compare, seq, low) => {
       }
       ,reset_list(){
          this.datasets.splice(this.current_tab,1,register[this.current_tab].init())
+      },
+      save() {
+         localStorage.setItem("ne-0", JSON.stringify(s))
       }
    }
 })
@@ -86,7 +94,7 @@ register.forEach((notation,index)=>{
                      expr:FSbounded(FS,this.compare,item.expr,working_low)
                      ,low:JSON.parse(JSON.stringify(working_low))
                      , subitems: []
-                     , anal: ["???"]
+                     , anal: (typeof(s[notation.id][expr])==undefined)?["???"]:["lol"]
                   })
                   working_low = [item.subitems[0].expr]
                }
@@ -97,7 +105,7 @@ register.forEach((notation,index)=>{
                var newitem={
                   expr:FSbounded(FS,this.compare,item.expr,item.low)
                   , low: JSON.parse(JSON.stringify(item.low))
-                  ,anal: ["???"]
+                  , anal: (s[notation.id][FSbounded(FS, this.compare, item.expr, item.low)] != undefined) ? s[notation.id][FSbounded(FS, this.compare, item.expr, item.low)] : ["???"]
                   ,subitems:[]
                }
                append.splice(append.map(x=>JSON.stringify(x.expr)).indexOf(JSON.stringify(item.expr))+1,0,newitem)
@@ -118,13 +126,14 @@ register.forEach((notation,index)=>{
             } else { return b + " / <span>" + c + "</span>" }
          },
          change_anal(e) {
-               console.log(this.anal)
-               this.anal[0] = window.prompt("Change the analysus of " + this.display(e) + " to...")
+               console.log(notation.id)
+            this.anal[0] = window.prompt("Change the analysus of " + this.display(e) + " to...")
+            s[notation.id][e] = this.anal[0]
          },
          hide(e) {
             if (h.includes(e)) {
                g = h.indexOf(e)
-               h = h.splice(1,g-1).concat(h.splice(g+1,h.length))
+               h = h.splice(1, g - 1).concat(h.splice(g + 1, h.length))
             } else {
                h = h.concat(e)
             }

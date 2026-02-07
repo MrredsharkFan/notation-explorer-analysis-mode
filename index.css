@@ -1,12 +1,12 @@
 html{
    font-family: "Saira Medium";
-   background: linear-gradient(#cccccc,#ffffff);
+   background: linear-gradient(#aabbcc,#ccddff);
 }
 
 .tooltip{
    display: inline-block;
    position: absolute;
-   z-index: 1073741822;
+   z-index: 1073741821;
    bottom: 100%;
    padding: 2px 5px;
    background-color: #dfd;
@@ -20,11 +20,10 @@ html{
    background-color: #cff;
 }
 .tab>button{
-   padding: 0 6px 2px;
    border: 2px solid #90f;
-   border-radius: 10px;
    background-color: #daf;
-   font-size: 20px;
+   transition-duration: 0.3s;
+   width: 25%;
 }
 .tab>button[disabled]{
    background-color: #60a;
@@ -37,8 +36,8 @@ html{
 .anal{
    text-align: left;
    position: absolute;
-   right: 0px;
-   z-index: 1073741823;
+   right: 10px;
+   z-index: 1073741822;
    top: 0px;
 }
 
@@ -85,4 +84,32 @@ html{
 
 .d:hover{
    background-color: #e15;
+}
+
+.e {
+   background-color: #666;
+   border-radius: 6px;
+   color: #fff;
+   transition-duration: 0.2s;
+}
+
+
+.e:hover {
+   background-color: #888;
+}
+
+.option{
+   position: fixed;
+   background-image: linear-gradient(rgba(255,255,255,0.5),rgba(235,235,235,1));
+   text-align: left;
+   bottom: 0%;
+   left: 0px;
+   font-size: 80%;
+   z-index: 1073741823;
+   width: 120%
+}
+
+.f{
+   background-color: #ddffee;
+   border-radius: 3px;
 }
