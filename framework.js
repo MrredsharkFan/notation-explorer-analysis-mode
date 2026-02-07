@@ -1,6 +1,6 @@
 if (localStorage.getItem("ne-0") == null)
    d = ""
-else if (!localStorage.getItem("ne-0").includes("omega-Y")) {
+else if (!localStorage.getItem("ne-0").includes("omega-y")) {
    d = ""
 } else {
    d = JSON.parse(localStorage.getItem("ne-0"))
