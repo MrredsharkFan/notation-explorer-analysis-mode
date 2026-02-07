@@ -1,4 +1,10 @@
-d = typeof(localStorage.getItem("ne-0"))==undefined?"":JSON.parse(localStorage.getItem("ne-0"))
+if (localStorage.getItem("ne-0") == null)
+   d = ""
+else if (!localStorage.getItem("ne-0").includes("omega-Y")) {
+   d = ""
+} else {
+   d = JSON.parse(localStorage.getItem("ne-0"))
+}
 s = {};
 for (i = 0; i < 36; i++){
    s[register[i]["id"]] = (typeof (d[register[i]]) != undefined) ? d[register[i]["id"]] : {}
