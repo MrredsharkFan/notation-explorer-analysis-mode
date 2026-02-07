@@ -7,7 +7,7 @@ else if (!localStorage.getItem("ne-0").includes("omega-y")) {
 }
 s = {};
 for (i = 0; i < 36; i++){
-   s[register[i]["id"]] = (typeof (d[register[i]]) == "object") ? d[register[i]["id"]] : {}
+   s[register[i]["id"]] = (typeof (d[register[i]["id"]]) == "object") ? d[register[i]["id"]] : {}
 }
 //you know how many fucking commits this took to get right???????
 const FSbounded = (FS, compare, seq, low) => {
@@ -129,7 +129,7 @@ register.forEach((notation,index)=>{
             extras.forEach(expand_extra)
          }
          , a(b, c) {
-            return c == "???" ? "<span class=\"g\">" + b + "</span>" : b + " / <span>" + c + "</span>"
+            return c != "???" ? "<span class=\"g\">" + (b == "" ? "\u2205":b) +" / "+ c+"</span > " : b
          },
          change_anal(e) {
             console.log(notation.id)

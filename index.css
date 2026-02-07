@@ -1,6 +1,6 @@
 html{
    font-family: "Saira Medium";
-   background: linear-gradient(#aabbcc,#ccddff);
+   background: #aabbcc;
 }
 
 .tooltip{
@@ -105,5 +105,10 @@ html{
 }
 
 .g{
-   color: rgba(0,0,0,0.4)
+   color: rgba(35,65,160,1)
+}
+
+.obligatory_logo{
+   background-color: #bcd;
+   text-align: center;
 }
