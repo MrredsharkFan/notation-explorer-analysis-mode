@@ -28,6 +28,9 @@
       (Press "&lt;" to decrease, and "&gt;" to increase)
    </div>
    </div>
+   <div style="width: 1000%; height: 20%; background-color: #cef; font-size: small; " >If you are too tired to expand things out, why not let me randomly choose 1 for you?
+      <button onclick="roll()" class="a2">Roll!</button><br>Your last roll was: <span id="roll_result">(You haven't rolled yet!)</span>
+   </div>
    <component :is="current_notation" :subitems="datasets[current_tab]"></component>
 </div>
 <script src="omega-Y.js"></script>

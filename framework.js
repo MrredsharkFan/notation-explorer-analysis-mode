@@ -194,3 +194,39 @@ window.addEventListener('keydown',e=>{
       }
    }
 })
+
+
+
+
+
+
+
+
+//rolling mechanism - i think u can see how much our coding style is different
+//i just didn't use vue :3
+function num_to_opr_seq(n) {
+   var a = (n % 1).toString(2).slice(2).split("0").map(x => x.length+0)
+   return a
+}
+function al(n) {
+   if (typeof (n) == "string"||typeof(n)=="number") { return n.toString().length/2 }
+   else { return n.length }
+}
+function glb_expand(seq,n){return register[root.current_tab].FS(seq,n)}
+function roll() {
+   while (true) {
+      var p = num_to_opr_seq(Math.random() / 2 + 0.5)
+      var q = register[root.current_tab].init()[0]['expr']
+      for (var i in p) {
+         var r = al(q)
+         var q1 = q
+         if (al(q) >= 1000 / p[i] || typeof (q) == "object" && q[q.length - 1] > 10000 && q[q.length - 1] != Infinity) { break }
+         q = glb_expand(q, p[i])
+         if (al(q) + 2 < r) { q = q1; break }
+      }
+      console.log(al(q))
+      if (al(q)>=3){break}
+   }
+   document.getElementById("roll_result").innerHTML = register[root.current_tab].display(q)
+   return register[root.current_tab].display(q)
+}
